@@ -1,11 +1,228 @@
 <html>
-  <head>
-   <title></title>
-  <link>
-  </head>
+<head>
+<title>Accessibility Challenge</title>
+<style>
+    *{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+header {
+    background-color: rgb(196, 196, 196);
+    height: 150px;
+   
+}
+
+
+header{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav{
+   padding-bottom: 15px; 
+   padding-right: 170px;
+}
+
+header form {
+    padding: 20px
+}
+
+.primaryContainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+}
+
+aside{
+    background-color: rgb(196, 196, 196);
+    padding:20px;
+}
+
+aside h2{
+    padding-bottom: 10px;
+}
+
+h1{
+    padding-bottom: 20px;
+}
+
+main h2 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+main form {
+    padding-bottom: 20px;
+}
+
+//tabbing so create 3 differnet divs for each tab. 2 will be hidden they will also be hidden rom accessibility tree. That way you cannot tab across them. If click 2nd tab, then make tab 1 and 3 hidden. If click 3rd tab make 1 and 2 hidden. etc. display:none will remove item from accessibility tree
+
+.hidden {
+    display:none;
+}
+
+
+
+main section form {
+   
+    width: 150px;
+    padding-top: 20px;
+    padding-left: 10px;
+    
+}
+
+main section form input {
+    margin: 10px;
+}
+
+.billingTab h3 {
+    padding-bottom: 10px;
+}
+
+.billingTab{
+    border: solid;
+    border-width: thin;
+    
+}
+
+.tabNames{
+    padding-bottom: 10px;
+}
+
+.tabNames a{
+    border: solid;
+    border-width: thin;
+    padding:10px;
+    
+}
+
+.orderFormSection {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+</style>
+
+</head>
 <body>
+ <header>
+    <figure>
+      <img src="acme-logo.jpg" alt="brand logo">
+   </figure>
+
+    <nav>
+        <a href=''>Explosives</a>
+        <a href=''>Accesorries</a>
+        <a href=''>Sale</a>
+    </nav>
+
+
+      <form method="get" role="search" aria-label="site">
+          <label for="site-search">
+          </label>
+          <input id='site-search' type='search'>
+          <button type="submit">Search</button>
+
+      </form>
+
+ </header>
+
+ <div class="primaryContainer">
+ <main>
+    <h1>My Account</h1>
+    <h2>Your Orders</h2>    
+
+    <form role="search">
+        <label for='order-search' aria-label='order'></label>
+        <input id='order-search' type='search' placeholder="order number, items">
+        <button type="submit">Search Orders</button>
+    </form>
+
+    <table class="orderHistory">
+      <tr>
+        <th>Order Number</th> 
+        <th>Order Date</th> 
+        <th>Order Total</th>   
+      </tr>
+      <tr>
+        <td>12343</td>
+        <td>10/20/35</td>
+        <td>$75</td>
+      </tr>
+      <tr>
+        <td>43920</td>
+        <td>8/34/20</td>
+        <td>$25</td>
+      </tr>
+      <tr>
+        <td>20201</td>
+        <td>9/29/19</td>
+        <td>$59</td>
+      </tr>
+    </table>
+
+
+    <section class='orderFormSection'>
+      <h2>Set Your Order Defaults</h2>
+        
+      
+      <section class="tabNames">
+        <a href="">Billing Address</a>
+        <a href="">Shipping Address</a>
+        <a href=""> Payment Information</a>
+      </section>
+
+      <section class="billingTab">
+        <form method="post">
+          <h3>Billing Address</h3>
+          <label for='first-name'>First Name</label>
+          <input id='first-name' type="text" name='first-name'>
+
+          <label for='last-name'>Last Name</label>
+          <input id='last-name' type="text" name='last-name'>
+
+          <label for='address1'>Address 1</label>
+          <input id='address1' type="text" name='address1'>
+
+          <label for='address2'>Address 2</label>
+          <input id='address2' type="text" name='address2'>
+
+          <label for='city'>City</label>
+          <input id='city' type="text" name='city'>
+
+          <label for='state'>State</label>
+          <input id='state' type="text" name='state'>
+
+          <label for='zip-code'>Zip Code</label>
+          <input id='zip-code' type="text" name='zip-code'>
+
+          <button type='submit'>Create Address</button>
+        </form>
+      </section>
+    </section>
+ </main>
+
  
- 
+
+
+ <aside>
+     <h2>Your VIP Summary</h2>
+     <p>958 VIP Points ($9.58)</p>
+     <a href="">More Details</a>
+ </aside>
+</div>
+
+
+ <footer>
+    <p>&copy; 2020 Acme Corporation</p>
+ </footer>
  
  
  
