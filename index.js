@@ -33,17 +33,65 @@ tabButtons[2].addEventListener('click',clickedPayment);
 let moreDetailsLink = document.querySelector('aside > a');
 let vipModal=document.getElementsByClassName('vipModal');
 let closeModalButton=document.getElementById('closeModalButton');
+let mainContainer=document.getElementsByTagName('main');
+let asideContainer=document.getElementsByTagName('aside');
+let headerContainer=document.getElementsByTagName('header');
+let footerContainer=document.getElementsByTagName('footer');
+let inputs = document.getElementsByTagName('input');
+let buttons = document.getElementsByTagName('button');
+let links = document.getElementsByTagName('a');
+let modalLinks = document.getElementsByClassName('modalLinks');
 
 let showVIPModal=()=>{
     event.preventDefault;
-    vipModal[0].className="vipModal border"
+    vipModal[0].className="vipModal border";
+    mainContainer[0].setAttribute("aria-hidden",'true');
+    headerContainer[0].setAttribute('aria-hidden','true');
+    footerContainer[0].setAttribute('aria-hidden','true');
+    asideContainer[0].setAttribute('aria-hidden','true');
+
+    for(i=0;i<inputs.length;i++){
+        inputs[i].setAttribute('tabindex','-1')
+    };
+    for(i=0;i<buttons.length;i++){
+        buttons[i].setAttribute('tabindex','-1')
+    }
+    for(i=0;i<links.length;i++){
+        links[i].setAttribute('tabindex','-1')
+    };
+    
+    for(i=0;i<modalLinks.length;i++){
+        modalLinks[i].setAttribute('tabindex','0')
+    };
+
+    modalLinks[0].focus();
 }
 //hide the content behind modal by using the aria-hidden attribute
 moreDetailsLink.addEventListener('click',showVIPModal);
 
 
 let closeVIPModal=()=>{
-    vipModal[0].className="vipModal border hidden"
+    vipModal[0].className="vipModal border hidden";
+    mainContainer[0].setAttribute("aria-hidden",'false');
+    headerContainer[0].setAttribute('aria-hidden','false');
+    footerContainer[0].setAttribute('aria-hidden','false');
+    asideContainer[0].setAttribute('aria-hidden','false');
+
+    for(i=0;i<inputs.length;i++){
+        inputs[i].removeAttribute('tabindex')
+    };
+    for(i=0;i<buttons.length;i++){
+        buttons[i].removeAttribute('tabindex')
+    }
+    for(i=0;i<links.length;i++){
+        links[i].removeAttribute('tabindex')
+    };
+    
+    for(i=0;i<modalLinks.length;i++){
+        modalLinks[i].removeAttribute('tabindex')
+    };
+
+
 }
 
 closeModalButton.addEventListener('click',closeVIPModal);

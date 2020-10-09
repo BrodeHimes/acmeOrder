@@ -5,7 +5,7 @@
 
 </head>
 <body class="modalBackground">
- <header class="greyBackground">
+ <header class="greyBackground" aria-hidden="true" tabindex='-1'>
     <figure>
       <img src="acme-logo.jpg" alt="brand logo">
    </figure>
@@ -20,7 +20,7 @@
       <form method="get" role="search" aria-label="site">
           <label for="site-search">
           </label>
-          <input id='site-search' type='search'>
+          <input  id='site-search' type='search'>
           <button type="submit">Search</button>
 
       </form>
@@ -28,7 +28,7 @@
  </header>
 
  <div class="primaryContainer">
- <main>
+ <main aria-hidden="true">
     <h1>My Account</h1>
     <h2>Your Orders</h2>    
 
@@ -73,7 +73,7 @@
       </section>
 
       <section class="orderDefaultTabs border" id="billingTab">
-        <form method="post">
+        <form method="post" action="/create-billing-address">
           <h3>Billing Address</h3>
           <label for='first-name'>First Name</label>
           <input id='first-name' type="text" name='first-name'>
@@ -102,7 +102,7 @@
     
 
        <section class="orderDefaultTabs border" id="shippingTab">
-        <form method="post">
+        <form method="post" action="/create-shipping-address">
           <h3>Shipping Address</h3>
           <label for='first-name'>First Name</label>
           <input id='first-name' type="text" name='first-name'>
@@ -130,7 +130,7 @@
        </section>
 
        <section class="orderDefaultTabs border" id="paymentTab">
-        <form method="post">
+        <form method="post" action="/create-payment-info">
           <h3>Payment Information</h3>
           <label for='full-name'>Full Name</label>
           <input id='full-name' type="text" name='full-name'>
@@ -158,23 +158,23 @@
  
 
 
- <aside class="greyBackground">
+  <aside class="greyBackground">
      <h2>Your VIP Summary</h2>
      <p>958 VIP Points ($9.58)</p>
      <a href="#">More Details</a>
- </aside>
-</div>
+  </aside>
+ </div>
 
 
 <section class="vipModal border hidden">
     <h2 class='paddingBottom'>VIP Points Terms</h2>
     <p class='paddingBottom'>We'll upgrade your shipping every single time- no strings attached, no minimum purchase!</p>
     <ul class='paddingBottom'>
-        <li><a href=''>FAQ</a></li>
-        <li><a href=''>Terms & Conditions</a></li>
-        <li><a href=''>Join Today</a></li>
+        <li><a href='' class="modalLinks">FAQ</a></li>
+        <li><a href='' class="modalLinks">Terms & Conditions</a></li>
+        <li><a href='' class="modalLinks">Join Today</a></li>
     </ul>
-    <button type='button' id="closeModalButton">X</button>
+    <button type='button' id="closeModalButton" class="modalLinks" aria-label="close">X</button>
 </section>
 
 
