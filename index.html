@@ -1,167 +1,10 @@
 <html>
 <head>
 <title>Accessibility Challenge</title>
-<style>
-    *{
-    margin: 0px;
-    padding: 0px;
-}
-
-
-header {
-    height: 150px;
-}
-
-
-
-header{
-    display:flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-}
-
-nav{
-   padding-bottom: 15px; 
-   padding-right: 170px;
-}
-
-header form {
-    padding: 20px
-}
-
-.primaryContainer{
-    display: flex;
-    justify-content: space-between;
-    padding: 40px;
-}
-
-aside{
-    padding:20px;
-}
-
-aside h2{
-    padding-bottom: 10px;
-}
-
-h1{
-    padding-bottom: 20px;
-}
-
-main h2 {
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
-main form {
-    padding-bottom: 20px;
-}
-
-//tabbing so create 3 differnet divs for each tab. 2 will be hidden they will also be hidden rom accessibility tree. That way you cannot tab across them. If click 2nd tab, then make tab 1 and 3 hidden. If click 3rd tab make 1 and 2 hidden. etc. display:none will remove item from accessibility tree
-
-
-main section form {
-   
-    width: 150px;
-    padding-top: 20px;
-    padding-left: 10px;
-    
-}
-
-main section form input {
-    margin: 10px;
-}
-
-.orderDefaultTabs h3 {
-    padding-bottom: 10px;
-}
-
-
-
-.tabNames{
-    padding-bottom: ;
-    display:flex;
-    flex-wrap: wrap;
-}
-
-.tabNames button{
-    border: solid;
-    border-width: thin;
-    padding:10px; 
-    background-color: white;
-    
-}
-
-.tabNames button:hover{
-    background-color: rgb(196, 196, 196);
-}
-
-
-
-.orderFormSection {
-    display: flex;
-    flex-direction: column;
-}
-
-.orderFormSection form{
-    display: flex;
-    flex-direction: column;
-    width:  200px;
-    padding-left: 10px;
-    padding-top: 10px;
-}
-
-
-
-.greyBackground {
-    background-color: rgb(196, 196, 196);
-}
-
-.border{
-    border: solid;
-    border-width: thin;
-}
-
-.vipModal{
-    width: 520px;
-    height: 180px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    padding: 10px;
-    position: absolute;
-    z-index: 1;
-    top: 300px;
-    left: 15em;
-    background-color: white;
-}
-
-.vipModal button {
-    position: relative;
-    right:19px;
-    top: 2px;
-    padding: 2px;
-}
-
-.paddingBottom {
-    padding-bottom: 20px;
-}
-
-.vipModal ul {
-    padding-left: 15px;
-}
-
-.hidden {
-    display:none;
-}
-
-
-
-</style>
+<link rel="stylesheet" href="styles.css">
 
 </head>
-<body>
+<body class="modalBackground">
  <header class="greyBackground">
     <figure>
       <img src="acme-logo.jpg" alt="brand logo">
@@ -318,7 +161,7 @@ main section form input {
  <aside class="greyBackground">
      <h2>Your VIP Summary</h2>
      <p>958 VIP Points ($9.58)</p>
-     <a href="">More Details</a>
+     <a href="#">More Details</a>
  </aside>
 </div>
 
