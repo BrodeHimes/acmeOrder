@@ -12,6 +12,11 @@ let clickedBilling = ()=>{
     billingTab.className=visibleTabClass;
     shippingTab.className=hiddenTabClass;
     paymentTab.className=hiddenTabClass;
+    tabButtons[1].setAttribute('tabindex','-1');
+    tabButtons[2].setAttribute('tabindex','-1');
+    tabButtons[0].setAttribute('tabindex','0')
+
+
 }
 tabButtons[0].addEventListener('click',clickedBilling)
 
@@ -19,6 +24,9 @@ let clickedShipping = ()=>{
     billingTab.className=hiddenTabClass;
     shippingTab.className=visibleTabClass;
     paymentTab.className=hiddenTabClass;
+    tabButtons[0].setAttribute('tabindex','-1');
+    tabButtons[2].setAttribute('tabindex','-1');
+    tabButtons[1].setAttribute('tabindex','0');
 }
 tabButtons[1].addEventListener('click',clickedShipping);
 
@@ -26,8 +34,79 @@ let clickedPayment = ()=>{
     billingTab.className=hiddenTabClass;
     shippingTab.className=hiddenTabClass;
     paymentTab.className=visibleTabClass;
+    tabButtons[0].setAttribute('tabindex','-1');
+    tabButtons[1].setAttribute('tabindex','-1');
+    tabButtons[2].setAttribute('tabindex','0');
 }
 tabButtons[2].addEventListener('click',clickedPayment);
+
+
+//can do on focus events to trigger events while an item is tab focused
+//put required tab on each input. find way to show error message. (if left bank, then show this)
+
+ 
+
+ 
+
+
+//Switching though tabs via arrow keys
+let switchTabsFromBilling=()=>{
+    switch (event.key) {
+        case "ArrowLeft":
+        clickedPayment();
+        tabButtons[2].focus();
+            break;
+        case "ArrowRight":
+        clickedShipping()
+        tabButtons[1].focus();
+        break;
+        
+    }
+}
+
+let switchTabsFromShipping=()=>{
+    switch (event.key) {
+        case "ArrowLeft":
+        clickedBilling();
+        tabButtons[0].focus();
+            break;
+        case "ArrowRight":
+        clickedPayment();
+        tabButtons[2].focus();
+            break; 
+    }
+}
+
+let switchTabsFromPayment=()=>{
+    switch (event.key) {
+        case "ArrowLeft":
+        clickedShipping();
+        tabButtons[1].focus();
+            break;
+        case "ArrowRight":
+        clickedBilling();
+        tabButtons[0].focus();
+            break;
+    }
+}
+
+
+
+tabButtons[0].addEventListener('keydown',switchTabsFromBilling)
+tabButtons[1].addEventListener('keydown',switchTabsFromShipping)
+tabButtons[2].addEventListener('keydown',switchTabsFromPayment)
+
+ 
+
+
+
+
+
+
+
+
+
+
 
 // VIP Module
 let moreDetailsLink = document.querySelector('aside > a');

@@ -93,6 +93,10 @@ main section form input {
     background-color: rgb(196, 196, 196);
 }
 
+.tabNames button:focus{
+    background-color: rgb(196, 196, 196);
+}
+
 
 
 .orderFormSection {
@@ -155,3 +159,4 @@ main section form input {
 
 .modalBackground{
 }
+

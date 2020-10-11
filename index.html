@@ -66,14 +66,14 @@
       <h2>Set Your Order Defaults</h2>
         
       
-      <section class="tabNames">
-        <button>Billing Address</button>
-        <button>Shipping Address</button>
-        <button> Payment Information</button>
+      <section class="tabNames" aria-describedby="Tabs to edit billing, shipping, or payment information">
+        <button role="tab">Billing Address</button>
+        <button role="tab" tabindex="-1">Shipping Address</button>
+        <button role="tab" tabindex="-1">Payment Information</button>            
       </section>
 
-      <section class="orderDefaultTabs border" id="billingTab">
-        <form method="post" action="/create-billing-address">
+      <section class="orderDefaultTabs border" id="billingTab" aria-label="Billing Address Pannel">
+        <form method="post" action="/create-billing-address" aria-describedby="Enter Billing Address Here">
           <h3>Billing Address</h3>
           <label for='first-name'>First Name</label>
           <input id='first-name' type="text" name='first-name'>
@@ -101,8 +101,8 @@
        </section>
     
 
-       <section class="orderDefaultTabs border" id="shippingTab">
-        <form method="post" action="/create-shipping-address">
+       <section class="orderDefaultTabs border hidden" id="shippingTab" aria-label="Shipping Address Pannel">
+        <form method="post" action="/create-shipping-address" aria-describedby="Enter Shipping Address Here">
           <h3>Shipping Address</h3>
           <label for='first-name'>First Name</label>
           <input id='first-name' type="text" name='first-name'>
@@ -129,8 +129,8 @@
         </form>
        </section>
 
-       <section class="orderDefaultTabs border" id="paymentTab">
-        <form method="post" action="/create-payment-info">
+       <section class="orderDefaultTabs border hidden" id="paymentTab" aria-label="Payment Info Pannel">
+        <form method="post" action="/create-payment-info" aria-describedby="Enter Payment Information Here">
           <h3>Payment Information</h3>
           <label for='full-name'>Full Name</label>
           <input id='full-name' type="text" name='full-name'>
@@ -147,12 +147,7 @@
           <button type='submit'>Save Card Information</button>
         </form>
        </section>
-
-
-
-
     </section>
-
  </main>
 
  
