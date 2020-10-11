@@ -16,7 +16,6 @@ let clickedBilling = ()=>{
     tabButtons[2].setAttribute('tabindex','-1');
     tabButtons[0].setAttribute('tabindex','0')
 
-
 }
 tabButtons[0].addEventListener('click',clickedBilling)
 
@@ -144,7 +143,15 @@ let showVIPModal=()=>{
     };
 
     modalLinks[0].focus();
+
+    let overlay= document.createElement('div');
+    overlay.setAttribute('id','overlay');
+    document.body.insertAdjacentElement('afterbegin',overlay);
+
+
 }
+
+
 //hide the content behind modal by using the aria-hidden attribute
 moreDetailsLink.addEventListener('click',showVIPModal);
 
@@ -169,7 +176,9 @@ let closeVIPModal=()=>{
     for(i=0;i<modalLinks.length;i++){
         modalLinks[i].removeAttribute('tabindex')
     };
-
+    
+    let overlay=document.getElementById('overlay')
+    document.body.removeChild(overlay);
 
 }
 

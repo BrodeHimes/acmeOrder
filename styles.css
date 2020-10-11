@@ -131,7 +131,7 @@ main section form input {
     flex-wrap: wrap;
     padding: 10px;
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     top: 300px;
     left: 15em;
     background-color: white;
@@ -157,6 +157,12 @@ main section form input {
 }
 
 
-.modalBackground{
-}
+#overlay{
+    background-color: black;
+    position: absolute;
+    z-index:1;
+    width: 100%;
+    height: 1082px;
+    opacity: .50;
+};
 
