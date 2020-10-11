@@ -40,8 +40,10 @@ let clickedPayment = ()=>{
 tabButtons[2].addEventListener('click',clickedPayment);
 
 
-//can do on focus events to trigger events while an item is tab focused
+//2 do
 //put required tab on each input. find way to show error message. (if left bank, then show this)
+//can even do it for number of didgits in card if want
+//put aria hidden on all items behind modal when clicked, remove when not. That way screen reader cannot see them.
 
  
 

@@ -1,18 +1,16 @@
-<html>
+<html lang='en'>
 <head>
 <title>Accessibility Challenge</title>
 <link rel="stylesheet" href="styles.css">
 
 </head>
 <body>
-
-
- <header class="greyBackground" aria-hidden="true" tabindex='-1'>
+ <header class="greyBackground" tabindex='-1'>
     <figure>
-      <img src="acme-logo.jpg" alt="brand logo">
+      <img src="acme-logo.jpg" alt="Website Brand Logo">
    </figure>
 
-    <nav>
+    <nav aria-label="Site Navigation Links">
         <a href=''>Explosives</a>
         <a href=''>Accesorries</a>
         <a href=''>Sale</a>
@@ -26,11 +24,10 @@
           <button type="submit">Search</button>
 
       </form>
-
  </header>
 
  <div class="primaryContainer">
- <main aria-hidden="true">
+ <main>
     <h1>My Account</h1>
     <h2>Your Orders</h2>    
 
@@ -77,26 +74,26 @@
       <section class="orderDefaultTabs border" id="billingTab" aria-label="Billing Address Pannel">
         <form method="post" action="/create-billing-address" aria-describedby="Enter Billing Address Here">
           <h3>Billing Address</h3>
-          <label for='first-name'>First Name</label>
-          <input id='first-name' type="text" name='first-name'>
+          <label for='billing-first-name'>First Name</label>
+          <input id='billing-first-name' type="text" name='billing-first-name' required>
 
-          <label for='last-name'>Last Name</label>
-          <input id='last-name' type="text" name='last-name'>
+          <label for='billing-last-name'>Last Name</label>
+          <input id='billing-last-name' type="text" name='billing-last-name' required>
 
-          <label for='address1'>Address 1</label>
-          <input id='address1' type="text" name='address1'>
+          <label for='billing-address-line1'> Address 1</label>
+          <input id='billing-address-line1' type="text" name='billing-address-line1' required>
 
-          <label for='address2'>Address 2</label>
-          <input id='address2' type="text" name='address2'>
+          <label for='billing-address-line2'>Address 2</label>
+          <input id='billing-address-line2' type="text" name='billing-address-line1' required>
 
-          <label for='city'>City</label>
-          <input id='city' type="text" name='city'>
+          <label for='billing-city'>City</label>
+          <input id='billing-city' type="text" name='billing-city' required>
 
-          <label for='state'>State</label>
-          <input id='state' type="text" name='state'>
+          <label for='billing-state'>State</label>
+          <input id='billing-state' type="text" name='billing-state' required>
 
-          <label for='zip-code'>Zip Code</label>
-          <input id='zip-code' type="text" name='zip-code'>
+          <label for='billing-zip-code'>Zip Code</label>
+          <input id='billing-zip-code' type="text" name='billing-zip-code' required>
 
           <button type='submit'>Create Address</button>
         </form>
@@ -106,26 +103,26 @@
        <section class="orderDefaultTabs border hidden" id="shippingTab" aria-label="Shipping Address Pannel">
         <form method="post" action="/create-shipping-address" aria-describedby="Enter Shipping Address Here">
           <h3>Shipping Address</h3>
-          <label for='first-name'>First Name</label>
-          <input id='first-name' type="text" name='first-name'>
+          <label for='shipping-first-name'>First Name</label>
+          <input id='shipping-first-name' type="text" name='shipping-first-name' required>
 
-          <label for='last-name'>Last Name</label>
-          <input id='last-name' type="text" name='last-name'>
+          <label for='shipping-last-name'>Last Name</label>
+          <input id='shipping-last-name' type="text" name='shipping-last-name' required>
 
-          <label for='address1'>Address 1</label>
-          <input id='address1' type="text" name='address1'>
+          <label for='shipping-address-line1'>Address 1</label>
+          <input id='shipping-address-line1' type="text" name='shipping-address-line1' required>
 
-          <label for='address2'>Address 2</label>
-          <input id='address2' type="text" name='address2'>
+          <label for='shipping-address-line2'>Address 2</label>
+          <input id='shipping-address-line2' type="text" name='shipping-address-line2' required>
 
-          <label for='city'>City</label>
-          <input id='city' type="text" name='city'>
+          <label for='shipping-city'>City</label>
+          <input id='shipping-city' type="text" name='shipping-city' required>
 
-          <label for='state'>State</label>
-          <input id='state' type="text" name='state'>
+          <label for='shipping-state'>State</label>
+          <input id='shipping-state' type="text" name='shipping-state' required>
 
-          <label for='zip-code'>Zip Code</label>
-          <input id='zip-code' type="text" name='zip-code'>
+          <label for='shipping-zip-code'>Zip Code</label>
+          <input id='shipping-zip-code' type="text" name='shipping-zip-code' required>
 
           <button type='submit'>Create Address</button>
         </form>
@@ -134,17 +131,17 @@
        <section class="orderDefaultTabs border hidden" id="paymentTab" aria-label="Payment Info Pannel">
         <form method="post" action="/create-payment-info" aria-describedby="Enter Payment Information Here">
           <h3>Payment Information</h3>
-          <label for='full-name'>Full Name</label>
-          <input id='full-name' type="text" name='full-name'>
+          <label for='payment-full-name'>Full Name</label>
+          <input id='payment-full-name' type="text" name='payment-full-name' required>
 
           <label for='card-number'>Card Number</label>
-          <input id='card-number' type="number" name='card-number'>
+          <input id='card-number' type="number" name='card-number' required>
 
           <label for='expiration-month'>Expiration Month</label>
-          <input id='expiration-month' type="number" name='expiration-month'>
+          <input id='expiration-month' type="number" name='expiration-month' required>
 
           <label for='expiration-year'>Expiration Year</label>
-          <input id='expiration-year' type="number" name='expiration-year'>
+          <input id='expiration-year' type="number" name='expiration-year' required>
 
           <button type='submit'>Save Card Information</button>
         </form>
