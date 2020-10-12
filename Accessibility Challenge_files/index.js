@@ -189,7 +189,7 @@ closeModalButton.addEventListener('click',closeVIPModal);
 // Error Messages
 
 let errorMessage = document.getElementsByClassName('error');
-let billingInputBoxes = document.querySelectorAll('section form#billingform input');
+let inputBox = document.querySelectorAll('section form input');
 let billingForm = document.getElementById('billingForm');
 let firstNameErrorMessage='Please enter your first name';
 let lastNameErrorMessage='Please enter your last name';
@@ -198,25 +198,21 @@ let cityErrorMessage='Please enter your city';
 let stateErrorMessage='Please enter your state';
 let zipErrorMessage='Please enter your zip code';
 
-console.log(billingInputBoxes)
+console.log(inputBox)
 
 let checkIfFilled = ()=>{
-    for(i=0;i<billingInputBoxes.length;i++){
-        if (!billingInputBoxes[i].validity.valid) {
-            showError(billingInputBoxes[i]);
+    for(i=0;i>inputBox.length;i++){
+        if (!inputBox[i].validity.valid) {
+            showError();
             event.preventDefault();
-        };
     }
+  };
 }
 
-let showError = (inputToShowError)=>{
-    if(inputToShowError.validity.valueMissing){
-        inputToShowError.setAttribute('class','inputError')
-        let errorMessageSpan = document.createElement('span')
-        errorMessageSpan.className="error";
-        errorMessageSpan.textContent=firstNameErrorMessage
-        inputToShowError.appendChild(errorMessageSpan)
-        
+let showError = ()=>{
+    if(inputBox[2].validity.valueMissing){
+        errorMessage[0].textContent=firstNameErrorMessage;
+        inputBox.setAttribute('class','inputError');
     }
 }
 
