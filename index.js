@@ -198,29 +198,35 @@ let cityErrorMessage='Please enter your city';
 let stateErrorMessage='Please enter your state';
 let zipErrorMessage='Please enter your zip code';
 
-console.log(billingInputBoxes)
+console.log(errorMessage)
 
-let checkIfFilled = ()=>{
-    for(i=0;i<billingInputBoxes.length;i++){
-        if (!billingInputBoxes[i].validity.valid) {
-            showError(billingInputBoxes[i]);
-            event.preventDefault();
-        };
-    }
+let billingValidation = ()=>{
+        for (i=0; i<billingInputBoxes.length; i++){
+            if (!billingInputBoxes[i].validity.valid) {
+                showError(i);
+                event.preventDefault();
+            }else if (billingInputBoxes[i].validity.valid){
+                stopError(i);
+            }
+        }
 }
 
-let showError = (inputToShowError)=>{
-    if(inputToShowError.validity.valueMissing){
-        inputToShowError.setAttribute('class','inputError')
-        let errorMessageSpan = document.createElement('span')
-        errorMessageSpan.className="error";
-        errorMessageSpan.textContent=firstNameErrorMessage
-        inputToShowError.appendChild(errorMessageSpan)
-        
-    }
+
+
+let showError = (i)=>{
+    console.log(errorMessage[i]);
+    console.log(billingInputBoxes[i]);
+    errorMessage[i].setAttribute('class', 'error');
+    billingInputBoxes[i].setAttribute('class','inputError'); 
 }
 
-billingForm.addEventListener('submit',checkIfFilled);
+let stopError =(i)=>{
+    console.log()
+    billingInputBoxes[i].removeAttribute('class', 'inputError');
+    errorMessage[i].setAttribute('class', 'error hidden')
+}
+
+billingForm.addEventListener('submit',billingValidation);
 
 
 
