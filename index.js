@@ -186,4 +186,34 @@ let closeVIPModal=()=>{
 
 closeModalButton.addEventListener('click',closeVIPModal);
 
+// Error Messages
+
+let errorMessage = document.getElementsByClassName('error');
+let inputBox = document.getElementById('billing-first-name');
+let billingForm = document.getElementById('billingForm');
+let firstNameErrorMessage='Please enter your first name';
+let lastNameErrorMessage='Please enter your last name';
+let addressErrorMessage='Please enter your address';
+let cityErrorMessage='Please enter your city';
+let stateErrorMessage='Please enter your state';
+let zipErrorMessage='Please enter your zip code';
+
+let checkIfFilled = ()=>{
+    if (!inputBox.validity.valid) {
+       showError();
+       event.preventDefault();
+  };
+}
+
+let showError = ()=>{
+    if(inputBox.validity.valueMissing){
+        errorMessage[0].textContent=firstNameErrorMessage;
+        inputBox.setAttribute('class','inputError');
+    }
+}
+
+billingForm.addEventListener('submit',checkIfFilled);
+
+
+
 

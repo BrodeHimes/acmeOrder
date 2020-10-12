@@ -65,8 +65,24 @@ main section form {
     
 }
 
-main section form input {
-    margin: 10px;
+
+.inputError {
+    border: solid;
+    border-color:red;  
+    border-width: .2em;
+    padding-bottom: 0px;
+}
+
+.error {
+    width:100%;
+    font-size: 80%;
+    color: red;
+
+}
+
+main section form label {
+    margin: 10px ;
+    
 }
 
 .orderDefaultTabs h3 {
@@ -165,4 +181,10 @@ main section form input {
     height: 1082px;
     opacity: .50;
 };
+
+
+
+ 
+
+
 

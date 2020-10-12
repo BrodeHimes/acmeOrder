@@ -72,28 +72,37 @@
       </section>
 
       <section class="orderDefaultTabs border" id="billingTab" aria-label="Billing Address Pannel">
-        <form method="post" action="/create-billing-address" aria-describedby="Enter Billing Address Here">
+        <form method="post" action="/create-billing-address" aria-describedby="Enter Billing Address Here" id="billingForm" novalidate>
           <h3>Billing Address</h3>
-          <label for='billing-first-name'>First Name</label>
-          <input id='billing-first-name' type="text" name='billing-first-name' required>
+          <label for='billing-first-name' >First Name
+           <input id='billing-first-name'    type="text" name='billing-first-name' required>
+           <span class='error' aria-live='polite'></span>
+          </label>
 
-          <label for='billing-last-name'>Last Name</label>
-          <input id='billing-last-name' type="text" name='billing-last-name' required>
 
-          <label for='billing-address-line1'> Address 1</label>
-          <input id='billing-address-line1' type="text" name='billing-address-line1' required>
+          <label for='billing-last-name'>Last Name
+           <input id='billing-last-name' type="text" name='billing-last-name' required>
+          </label>
 
-          <label for='billing-address-line2'>Address 2</label>
+          <label for='billing-address-line1'> Address 1 
+           <input id='billing-address-line1' type="text" name='billing-address-line1' required>
+          </label>
+
+          <label for='billing-address-line2'>Address 2 
           <input id='billing-address-line2' type="text" name='billing-address-line1' required>
+          </label> 
 
-          <label for='billing-city'>City</label>
+          <label for='billing-city'>City
           <input id='billing-city' type="text" name='billing-city' required>
+          </label>  
 
-          <label for='billing-state'>State</label>
+          <label for='billing-state'>State 
           <input id='billing-state' type="text" name='billing-state' required>
+          </label>
 
-          <label for='billing-zip-code'>Zip Code</label>
+          <label for='billing-zip-code'>Zip Code 
           <input id='billing-zip-code' type="text" name='billing-zip-code' required>
+         </label>
 
           <button type='submit'>Create Address</button>
         </form>
