@@ -178,6 +178,7 @@ let closeVIPModal=()=>{
     for(i=0;i<modalLinks.length;i++){
         modalLinks[i].removeAttribute('tabindex')
     };
+
     
     let overlay=document.getElementById('overlay')
     document.body.removeChild(overlay);
@@ -185,103 +186,62 @@ let closeVIPModal=()=>{
 }
 
 closeModalButton.addEventListener('click',closeVIPModal);
+ 
 
-// Error Messages
+//VALIDATION FUNCTIONS
 
+
+//billing Validation
 let billingErrorMessage = document.querySelectorAll('#billingForm .error');
 let billingInputBoxes = document.querySelectorAll('section form#billingform input');
 let billingForm = document.getElementById('billingForm');
-
-
-
-let billingValidation = ()=>{
-        for (i=0; i<billingInputBoxes.length; i++){
-            if (!billingInputBoxes[i].validity.valid) {
-                showErrorBilling(i);
-                event.preventDefault();
-            }else if (billingInputBoxes[i].validity.valid){
-                stopErrorBilling(i);
-            }
-        }
-}
-let showErrorBilling = (i)=>{
-    billingErrorMessage[i].setAttribute('class', 'error');
-    billingInputBoxes[i].setAttribute('class','inputError'); 
-}
-let stopErrorBilling =(i)=>{
-    billingInputBoxes[i].removeAttribute('class', 'inputError');
-    billingErrorMessage[i].setAttribute('class', 'error hidden')
-}
-
-billingForm.addEventListener('submit',billingValidation);
-
 // Shipping Validation
 let shippingInputBoxes=document.querySelectorAll('section form#shippingForm input');
 let shippingErrorMessage = document.querySelectorAll('#shippingForm .error');
 let shippingForm = document.getElementById('shippingForm');
 console.log(shippingForm)
-
-
-let shippingValidation = ()=>{
-    for (i=0; i<shippingInputBoxes.length; i++){
-        console.log(i);
-        if (!shippingInputBoxes[i].validity.valid) {
-            showErrorShipping(i);
-            event.preventDefault();
-        }else if (shippingInputBoxes[i].validity.valid){
-            stopErrorShipping(i);
-        }
-    }
-}
-let showErrorShipping = (i)=>{
-  shippingErrorMessage[i].setAttribute('class', 'error');
-  shippingInputBoxes[i].setAttribute('class','inputError'); 
-}
-let stopErrorShipping =(i)=>{
-  shippingInputBoxes[i].removeAttribute('class', 'inputError');
-  shippingErrorMessage[i].setAttribute('class', 'error hidden')
-}
-let testy=()=>{
-    console.log('testy')
-    console.log(shippingForm);
-}
-
-
-billingForm.addEventListener('submit',testy);
-
-shippingForm.addEventListener('submit', shippingValidation);
-shippingForm.addEventListener('submit', testy);
-
-//shipping validation function not working like before. Seems submit is not triguring function like it does for billing address. 
-
-
-
-
 // Payment Validation
 let paymentInputBoxes=document.querySelectorAll('section form#paymentForm input');
 let paymentErrorMessage = document.querySelectorAll('#paymentForm .error');
 let paymentForm = document.getElementById('paymentForm');
 
 
-// let paymentValidation = ()=>{
-//     for (i=0; i<paymentInputBoxes.length; i++){
-//         if (!paymentInputBoxes[i].validity.valid) {
-//             showErrorPayment(i);
-//             event.preventDefault();
-//         }else if (paymentInputBoxes[i].validity.valid){
-//             stopErrorPayment(i);
-//         }
-//     }
-// }
-// let showErrorPayment = (i)=>{
-// paymentErrorMessage[i].setAttribute('class', 'error');
-// paymentInputBoxes[i].setAttribute('class','inputError'); 
-// }
 
-// let stopErrorPayment =(i)=>{
-// paymentInputBoxes[i].removeAttribute('class', 'inputError');
-// paymentErrorMessage[i].setAttribute('class', 'error hidden')
-// }
+let mainFunction = ()=>{
+    if (event.target.id=='billingForm'){
+        validationFunction(billingInputBoxes,billingErrorMessage)
+    } else if(event.target.id=='shippingForm'){
+        validationFunction(shippingInputBoxes,shippingErrorMessage)
+    } else if(event.target.id=='paymentForm'){
+        validationFunction(paymentInputBoxes,paymentErrorMessage)
+    }
+};
 
-// paymentForm.addEventListener('submit', paymentValidation);
 
+
+let validationFunction =(inputBoxesToCheck,errorMessageToShow)=>{
+    for (i=0;i<inputBoxesToCheck.length;i++){
+        if(!inputBoxesToCheck[i].validity.valid){
+            console.log(inputBoxesToCheck[i]);
+            showError(i,inputBoxesToCheck,errorMessageToShow);
+            event.preventDefault();
+        } else if (inputBoxesToCheck[i].validity.valid){
+            stopError(i,inputBoxesToCheck,errorMessageToShow)
+            event.preventDefault();
+        }
+    }
+}; 
+
+let showError = (i,inputBoxesToCheck,errorMessageToShow)=>{
+    errorMessageToShow[i].setAttribute('class','error');
+    inputBoxesToCheck[i].setAttribute('class','inputError');
+};
+
+let stopError = (i,inputBoxesToCheck,errorMessageToShow)=>{
+    inputBoxesToCheck[i].removeAttribute('class', 'inputError');
+    errorMessageToShow[i].setAttribute('class', 'error hidden');
+};
+
+billingForm.addEventListener('submit',mainFunction);
+shippingForm.addEventListener('submit',mainFunction);
+paymentForm.addEventListener('submit',mainFunction);

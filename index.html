@@ -72,11 +72,11 @@
       </section>
 
       <section class="orderDefaultTabs border" id="billingTab" aria-label="Billing Address Pannel">
-        <form method="post" action="/create-billing-address" aria-describedby="Enter Billing Address Here" id="billingForm" novalidate>
+        <form method="post" action="/create-billing-address" aria-describedby="Enter Billing Address Here" id="billingForm" novalidate  >
           <h3>Billing Address</h3>
 
           <label for='billing-first-name' >First Name
-             <input id='billing-first-name'    type="text" name='billing-first-name' required>
+             <input id='billing-first-name'     type="text" name='billing-first-name' required>
              <span class='error hidden' aria-live='polite'>Please enter your first name</span>
           </label>
 
@@ -111,14 +111,14 @@
             <span class='error hidden' aria-live='polite'>Please enter your zip code</span>
          </label>
 
-          <button type='submit'>Create Address</button>
+          <button type='submit' id="submitBilling">Create Address</button>
         </form>
        </section>
     
 
        <section class="orderDefaultTabs border hidden" id="shippingTab" aria-label="Shipping Address Pannel">
 
-        <form method="post"  action="/create-shipping-address" aria-describedby="Enter Shipping Address Here" id="shippingForm">
+        <form method="post"  action="/create-shipping-address" aria-describedby="Enter Shipping Address Here" id="shippingForm" novalidate>
           <h3>Shipping Address</h3>
           <label for='shipping-first-name'>First Name
             <input id='shipping-first-name' type="text" name='shipping-first-name' required>
@@ -155,13 +155,13 @@
             <span class='error hidden' aria-live='polite'>Please enter your zip code</span>
          </label>
 
-          <button type='submit'>Create Address</button>
+          <button type='submit' id="submitShipping">Create Address</button>
         </form>
        </section>
 
        <section class="orderDefaultTabs border hidden" id="paymentTab" aria-label="Payment Info Pannel">
 
-        <form method="post" id="paymentForm" action="/create-payment-info" aria-describedby="Enter Payment Information Here">
+        <form method="post" id="paymentForm" action="/create-payment-info" aria-describedby="Enter Payment Information Here" novalidate>
           <h3>Payment Information</h3>
           <label for='payment-full-name'>Full Name 
             <input id='payment-full-name' type="text" name='payment-full-name' required>
@@ -169,25 +169,27 @@
           </label>
 
           <label for='card-number'>Card Number
-            <input id='card-number' type="number" name='card-number' required placeholder="XXXX-XXXX-XXXX-XXXX">
+            <input id='card-number' type="number" name='card-number'  placeholder="XXXX-XXXX-XXXX-XXXX" required>
             <span class='error hidden' aria-live='polite'>Please enter your 16 digit card number</span>
          </label>
 
           <label for='expiration-month'>Expiration Month
-            <input id='expiration-month' type="number" name='expiration-month' required>
+            <input id='expiration-month' type="number" name='expiration-month' placeholder="XX"required>
             <span class='error hidden' aria-live='polite'>Please enter card expiration month</span>
           </label>
 
           <label for='expiration-year'>Expiration Year
-            <input id='expiration-year' type="number" name='expiration-year' required>
+            <input id='expiration-year' type="number" name='expiration-year' placeholder="XXXX" required>
             <span class='error hidden' aria-live='polite'>Please enter card expiration year</span>
          </label>
 
-          <button type='submit'>Save Card Information</button>
+          <button type='submit' id='submitPayment'>Save Card Information</button>
         </form>
        </section>
     </section>
   </main>
+
+
   <aside class="greyBackground">
      <h2>Your VIP Summary</h2>
      <p>958 VIP Points ($9.58)</p>
