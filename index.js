@@ -9,6 +9,7 @@ let tabButtons = document.querySelectorAll('section.tabNames > button');
 let hiddenTabClass ='orderDefaultTabs border hidden';
 let visibleTabClass = 'orderDefaultTabs border';
 
+// let tabClicked = 'billing'
 
 let clickedBilling = ()=>{
     billingTab.className=visibleTabClass;
@@ -18,6 +19,13 @@ let clickedBilling = ()=>{
     tabButtons[2].setAttribute('tabindex','-1');
     tabButtons[0].setAttribute('tabindex','0');
 
+    
+    tabButtons[0].setAttribute('id','focusedTab');
+    tabButtons[1].removeAttribute('id', 'focusedTab');
+    tabButtons[2].removeAttribute('id','focusedTab');
+
+    
+
 }
 tabButtons[0].addEventListener('click',clickedBilling)
 
@@ -26,8 +34,12 @@ let clickedShipping = ()=>{
     shippingTab.className=visibleTabClass;
     paymentTab.className=hiddenTabClass;
     tabButtons[0].setAttribute('tabindex','-1');
-    tabButtons[2].setAttribute('tabindex','-1');
     tabButtons[1].setAttribute('tabindex','0');
+    tabButtons[2].setAttribute('tabindex','-1');
+
+    tabButtons[0].removeAttribute('id', 'focusedTab');
+    tabButtons[1].setAttribute('id','focusedTab');
+    tabButtons[2].removeAttribute('id','focusedTab');
 }
 tabButtons[1].addEventListener('click',clickedShipping);
 
@@ -38,6 +50,10 @@ let clickedPayment = ()=>{
     tabButtons[0].setAttribute('tabindex','-1');
     tabButtons[1].setAttribute('tabindex','-1');
     tabButtons[2].setAttribute('tabindex','0');
+
+    tabButtons[0].removeAttribute('id', 'focusedTab');
+    tabButtons[1].removeAttribute('id','focusedTab');
+    tabButtons[2].setAttribute('id','focusedTab');
 }
 tabButtons[2].addEventListener('click',clickedPayment);
 
@@ -154,9 +170,6 @@ let escapeClose =()=>{
     }
 }
 
-
-
-
 let closeVIPModal=()=>{
     vipModal[0].className="vipModal border hidden";
     mainContainer[0].removeAttribute('aria-hidden');
@@ -167,7 +180,6 @@ let closeVIPModal=()=>{
     shippingTab.className=hiddenTabClass;
     paymentTab.className=hiddenTabClass;
     
-
     for(i=0;i<inputs.length;i++){
         inputs[i].removeAttribute('tabindex')
     };
@@ -228,7 +240,6 @@ let mainFunction = ()=>{
 let validationFunction =(inputBoxesToCheck,errorMessageToShow)=>{
     for (i=0;i<inputBoxesToCheck.length;i++){
         if(!inputBoxesToCheck[i].validity.valid){
-            console.log(inputBoxesToCheck[i]);
             showError(i,inputBoxesToCheck,errorMessageToShow);
             event.preventDefault();
         } else if (inputBoxesToCheck[i].validity.valid){

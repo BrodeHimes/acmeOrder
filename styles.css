@@ -2,18 +2,14 @@
     margin: 0px;
     padding: 0px;
 }
-/* 
-may use this later
-#tabFocused{
+ 
+#focusedTab{
     background-color: rgb(196, 196, 196);
-} */
+}
 
 header {
     height: 150px;
 }
-
-
-
 header{
     display:flex;
     flex-wrap: wrap;
@@ -21,12 +17,10 @@ header{
     justify-content: space-between;
     align-items: center;
 }
-
 nav{
    padding-bottom: 15px; 
    padding-right: 170px;
 }
-
 header form {
     padding: 20px
 }
