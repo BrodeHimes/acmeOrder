@@ -9,8 +9,7 @@ let tabButtons = document.querySelectorAll('section.tabNames > button');
 let hiddenTabClass ='orderDefaultTabs border hidden';
 let visibleTabClass = 'orderDefaultTabs border';
 
-// let tabClicked = 'billing'
-
+var tabClicked;
 let clickedBilling = ()=>{
     billingTab.className=visibleTabClass;
     shippingTab.className=hiddenTabClass;
@@ -24,6 +23,7 @@ let clickedBilling = ()=>{
     tabButtons[1].removeAttribute('id', 'focusedTab');
     tabButtons[2].removeAttribute('id','focusedTab');
 
+    tabClicked = 'billing';
     
 
 }
@@ -40,6 +40,8 @@ let clickedShipping = ()=>{
     tabButtons[0].removeAttribute('id', 'focusedTab');
     tabButtons[1].setAttribute('id','focusedTab');
     tabButtons[2].removeAttribute('id','focusedTab');
+
+    tabClicked = 'shipping';
 }
 tabButtons[1].addEventListener('click',clickedShipping);
 
@@ -54,6 +56,8 @@ let clickedPayment = ()=>{
     tabButtons[0].removeAttribute('id', 'focusedTab');
     tabButtons[1].removeAttribute('id','focusedTab');
     tabButtons[2].setAttribute('id','focusedTab');
+
+    tabClicked = 'payment';
 }
 tabButtons[2].addEventListener('click',clickedPayment);
 
@@ -194,10 +198,8 @@ let closeVIPModal=()=>{
         modalLinks[i].removeAttribute('tabindex')
     };
 
-    tabButtons[1].setAttribute('tabindex','-1');
-    tabButtons[2].setAttribute('tabindex','-1');
-    tabButtons[0].setAttribute('tabindex','0');
 
+    keepClickedOrderTabOpen();
     
     let overlay=document.getElementById('overlay')
     document.body.removeChild(overlay);
@@ -207,6 +209,21 @@ let closeVIPModal=()=>{
 
 closeModalButton.addEventListener('click',closeVIPModal);
  
+// Ensures the previously clicked Order Default tab stays opened when you close vip modal
+
+let keepClickedOrderTabOpen=()=>{
+    if (tabClicked=='billing'){
+     clickedBilling();
+    } else if (tabClicked=='shipping'){
+     clickedShipping();
+    } else if (tabClicked=='payment'){
+     clickedPayment();
+    }
+}
+
+
+
+
 
 //VALIDATION FUNCTIONS
 
@@ -218,7 +235,6 @@ let billingForm = document.getElementById('billingForm');
 let shippingInputBoxes=document.querySelectorAll('section form#shippingForm input');
 let shippingErrorMessage = document.querySelectorAll('#shippingForm .error');
 let shippingForm = document.getElementById('shippingForm');
-console.log(shippingForm)
 // Payment Validation
 let paymentInputBoxes=document.querySelectorAll('section form#paymentForm input');
 let paymentErrorMessage = document.querySelectorAll('#paymentForm .error');
