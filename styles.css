@@ -85,6 +85,10 @@ main section form label {
     
 }
 
+::placeholder{
+    font-size: 80%;
+}
+
 .orderDefaultTabs h3 {
     padding-bottom: 10px;
 }

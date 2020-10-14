@@ -188,46 +188,100 @@ closeModalButton.addEventListener('click',closeVIPModal);
 
 // Error Messages
 
-let errorMessage = document.getElementsByClassName('error');
+let billingErrorMessage = document.querySelectorAll('#billingForm .error');
 let billingInputBoxes = document.querySelectorAll('section form#billingform input');
 let billingForm = document.getElementById('billingForm');
-let firstNameErrorMessage='Please enter your first name';
-let lastNameErrorMessage='Please enter your last name';
-let addressErrorMessage='Please enter your address';
-let cityErrorMessage='Please enter your city';
-let stateErrorMessage='Please enter your state';
-let zipErrorMessage='Please enter your zip code';
 
-console.log(errorMessage)
+
 
 let billingValidation = ()=>{
         for (i=0; i<billingInputBoxes.length; i++){
             if (!billingInputBoxes[i].validity.valid) {
-                showError(i);
+                showErrorBilling(i);
                 event.preventDefault();
             }else if (billingInputBoxes[i].validity.valid){
-                stopError(i);
+                stopErrorBilling(i);
             }
         }
 }
-
-
-
-let showError = (i)=>{
-    console.log(errorMessage[i]);
-    console.log(billingInputBoxes[i]);
-    errorMessage[i].setAttribute('class', 'error');
+let showErrorBilling = (i)=>{
+    billingErrorMessage[i].setAttribute('class', 'error');
     billingInputBoxes[i].setAttribute('class','inputError'); 
 }
-
-let stopError =(i)=>{
-    console.log()
+let stopErrorBilling =(i)=>{
     billingInputBoxes[i].removeAttribute('class', 'inputError');
-    errorMessage[i].setAttribute('class', 'error hidden')
+    billingErrorMessage[i].setAttribute('class', 'error hidden')
 }
 
 billingForm.addEventListener('submit',billingValidation);
 
+// Shipping Validation
+let shippingInputBoxes=document.querySelectorAll('section form#shippingForm input');
+let shippingErrorMessage = document.querySelectorAll('#shippingForm .error');
+let shippingForm = document.getElementById('shippingForm');
+console.log(shippingForm)
 
 
+let shippingValidation = ()=>{
+    for (i=0; i<shippingInputBoxes.length; i++){
+        console.log(i);
+        if (!shippingInputBoxes[i].validity.valid) {
+            showErrorShipping(i);
+            event.preventDefault();
+        }else if (shippingInputBoxes[i].validity.valid){
+            stopErrorShipping(i);
+        }
+    }
+}
+let showErrorShipping = (i)=>{
+  shippingErrorMessage[i].setAttribute('class', 'error');
+  shippingInputBoxes[i].setAttribute('class','inputError'); 
+}
+let stopErrorShipping =(i)=>{
+  shippingInputBoxes[i].removeAttribute('class', 'inputError');
+  shippingErrorMessage[i].setAttribute('class', 'error hidden')
+}
+let testy=()=>{
+    console.log('testy')
+    console.log(shippingForm);
+}
+
+
+billingForm.addEventListener('submit',testy);
+
+shippingForm.addEventListener('submit', shippingValidation);
+shippingForm.addEventListener('submit', testy);
+
+//shipping validation function not working like before. Seems submit is not triguring function like it does for billing address. 
+
+
+
+
+// Payment Validation
+let paymentInputBoxes=document.querySelectorAll('section form#paymentForm input');
+let paymentErrorMessage = document.querySelectorAll('#paymentForm .error');
+let paymentForm = document.getElementById('paymentForm');
+
+
+// let paymentValidation = ()=>{
+//     for (i=0; i<paymentInputBoxes.length; i++){
+//         if (!paymentInputBoxes[i].validity.valid) {
+//             showErrorPayment(i);
+//             event.preventDefault();
+//         }else if (paymentInputBoxes[i].validity.valid){
+//             stopErrorPayment(i);
+//         }
+//     }
+// }
+// let showErrorPayment = (i)=>{
+// paymentErrorMessage[i].setAttribute('class', 'error');
+// paymentInputBoxes[i].setAttribute('class','inputError'); 
+// }
+
+// let stopErrorPayment =(i)=>{
+// paymentInputBoxes[i].removeAttribute('class', 'inputError');
+// paymentErrorMessage[i].setAttribute('class', 'error hidden')
+// }
+
+// paymentForm.addEventListener('submit', paymentValidation);
 

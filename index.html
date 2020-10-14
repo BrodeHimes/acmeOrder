@@ -27,7 +27,7 @@
  </header>
 
  <div class="primaryContainer">
- <main>
+  <main>
     <h1>My Account</h1>
     <h2>Your Orders</h2>    
 
@@ -76,24 +76,24 @@
           <h3>Billing Address</h3>
 
           <label for='billing-first-name' >First Name
-           <input id='billing-first-name'    type="text" name='billing-first-name' required>
-           <span class='error hidden' aria-live='polite'>Please enter your first name</span>
+             <input id='billing-first-name'    type="text" name='billing-first-name' required>
+             <span class='error hidden' aria-live='polite'>Please enter your first name</span>
           </label>
 
 
           <label for='billing-last-name'>Last Name
-           <input id='billing-last-name' type="text" name='billing-last-name' required>
-           <span class='error hidden' aria-live='polite'>Please enter your last name</span>
+             <input id='billing-last-name' type="text" name='billing-last-name' required>
+             <span class='error hidden' aria-live='polite'>Please enter your last name</span>
           </label>
 
           <label for='billing-address-line1'> Address 1 
-           <input id='billing-address-line1' type="text" name='billing-address-line1' required>
-           <span class='error hidden' aria-live='polite'>Please enter your address</span>
+             <input id='billing-address-line1' type="text" name='billing-address-line1' required>
+             <span class='error hidden' aria-live='polite'>Please enter your address</span>
           </label>
 
           <label for='billing-address-line2'>Address 2 
-          <input id='billing-address-line2' type="text" name='billing-address-line2'>
-          <span class='error hidden' aria-live='polite'>Please enter your address</span>
+            <input id='billing-address-line2' type="text" name='billing-address-line2'>
+            <span class='error hidden' >Please enter your address</span>
           </label> 
 
           <label for='billing-city'>City
@@ -102,13 +102,13 @@
           </label>  
 
           <label for='billing-state'>State 
-          <input id='billing-state' type="text" name='billing-state' required>
-          <span class='error hidden' aria-live='polite'>Please enter your state</span>
+            <input id='billing-state' type="text" name='billing-state' required>
+            <span class='error hidden' aria-live='polite'>Please enter your state</span>
           </label>
 
           <label for='billing-zip-code'>Zip Code 
-          <input id='billing-zip-code' type="text" name='billing-zip-code' required>
-          <span class='error hidden' aria-live='polite'>Please enter your zip code</span>
+            <input id='billing-zip-code' type="text" name='billing-zip-code' required>
+            <span class='error hidden' aria-live='polite'>Please enter your zip code</span>
          </label>
 
           <button type='submit'>Create Address</button>
@@ -117,57 +117,77 @@
     
 
        <section class="orderDefaultTabs border hidden" id="shippingTab" aria-label="Shipping Address Pannel">
-        <form method="post" action="/create-shipping-address" aria-describedby="Enter Shipping Address Here">
+
+        <form method="post"  action="/create-shipping-address" aria-describedby="Enter Shipping Address Here" id="shippingForm">
           <h3>Shipping Address</h3>
-          <label for='shipping-first-name'>First Name</label>
-          <input id='shipping-first-name' type="text" name='shipping-first-name' required>
+          <label for='shipping-first-name'>First Name
+            <input id='shipping-first-name' type="text" name='shipping-first-name' required>
+            <span class='error hidden' aria-live='polite'>Please enter your first name</span>
+          </label>
 
-          <label for='shipping-last-name'>Last Name</label>
-          <input id='shipping-last-name' type="text" name='shipping-last-name' required>
+          <label for='shipping-last-name'>Last Name 
+            <input id='shipping-last-name' type="text" name='shipping-last-name' required>
+            <span class='error hidden' aria-live='polite'>Please enter your last name</span>
+          </label>
 
-          <label for='shipping-address-line1'>Address 1</label>
-          <input id='shipping-address-line1' type="text" name='shipping-address-line1' required>
+          <label for='shipping-address-line1'>Address 1 
+            <input id='shipping-address-line1' type="text" name='shipping-address-line1' required>
+            <span class='error hidden' aria-live='polite'>Please enter your address</span>
+          </label>
 
-          <label for='shipping-address-line2'>Address 2</label>
-          <input id='shipping-address-line2' type="text" name='shipping-address-line2' required>
+          <label for='shipping-address-line2'>Address 2 
+            <input id='shipping-address-line2' type="text" name='shipping-address-line2'>
+            <span class='error hidden'>Please enter your address</span>
+          </label>
 
-          <label for='shipping-city'>City</label>
-          <input id='shipping-city' type="text" name='shipping-city' required>
+          <label for='shipping-city'>City
+            <input id='shipping-city' type="text" name='shipping-city' required>
+            <span class='error hidden' aria-live='polite'>Please enter your city</span>
+          </label>  
 
-          <label for='shipping-state'>State</label>
-          <input id='shipping-state' type="text" name='shipping-state' required>
+          <label for='shipping-state'>State
+            <input id='shipping-state' type="text" name='shipping-state' required>
+            <span class='error hidden' aria-live='polite'>Please enter your state</span>
+          </label>
 
-          <label for='shipping-zip-code'>Zip Code</label>
-          <input id='shipping-zip-code' type="text" name='shipping-zip-code' required>
+          <label for='shipping-zip-code'>Zip Code
+            <input id='shipping-zip-code' type="text" name='shipping-zip-code' required>
+            <span class='error hidden' aria-live='polite'>Please enter your zip code</span>
+         </label>
 
           <button type='submit'>Create Address</button>
         </form>
        </section>
 
        <section class="orderDefaultTabs border hidden" id="paymentTab" aria-label="Payment Info Pannel">
-        <form method="post" action="/create-payment-info" aria-describedby="Enter Payment Information Here">
+
+        <form method="post" id="paymentForm" action="/create-payment-info" aria-describedby="Enter Payment Information Here">
           <h3>Payment Information</h3>
-          <label for='payment-full-name'>Full Name</label>
-          <input id='payment-full-name' type="text" name='payment-full-name' required>
+          <label for='payment-full-name'>Full Name 
+            <input id='payment-full-name' type="text" name='payment-full-name' required>
+            <span class='error hidden' aria-live='polite'>Please enter your full name</span>
+          </label>
 
-          <label for='card-number'>Card Number</label>
-          <input id='card-number' type="number" name='card-number' required>
+          <label for='card-number'>Card Number
+            <input id='card-number' type="number" name='card-number' required placeholder="XXXX-XXXX-XXXX-XXXX">
+            <span class='error hidden' aria-live='polite'>Please enter your 16 digit card number</span>
+         </label>
 
-          <label for='expiration-month'>Expiration Month</label>
-          <input id='expiration-month' type="number" name='expiration-month' required>
+          <label for='expiration-month'>Expiration Month
+            <input id='expiration-month' type="number" name='expiration-month' required>
+            <span class='error hidden' aria-live='polite'>Please enter card expiration month</span>
+          </label>
 
-          <label for='expiration-year'>Expiration Year</label>
-          <input id='expiration-year' type="number" name='expiration-year' required>
+          <label for='expiration-year'>Expiration Year
+            <input id='expiration-year' type="number" name='expiration-year' required>
+            <span class='error hidden' aria-live='polite'>Please enter card expiration year</span>
+         </label>
 
           <button type='submit'>Save Card Information</button>
         </form>
        </section>
     </section>
- </main>
-
- 
-
-
+  </main>
   <aside class="greyBackground">
      <h2>Your VIP Summary</h2>
      <p>958 VIP Points ($9.58)</p>
