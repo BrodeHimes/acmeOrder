@@ -2,7 +2,11 @@
     margin: 0px;
     padding: 0px;
 }
-
+/* 
+may use this later
+#tabFocused{
+    background-color: rgb(196, 196, 196);
+} */
 
 header {
     height: 150px;
@@ -105,6 +109,9 @@ main section form button{
 }
 
 
+
+
+
 ::placeholder{
     font-size: 80%;
 }
@@ -136,6 +143,7 @@ main section form button{
 .tabNames button:focus{
     background-color: rgb(196, 196, 196);
 }
+
 
 
 
@@ -202,7 +210,7 @@ main section form button{
     position: absolute;
     z-index:1;
     width: 100%;
-    height: 1082px;
+    height: 1110px;
     opacity: .50;
 };
 

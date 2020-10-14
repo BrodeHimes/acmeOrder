@@ -1,3 +1,6 @@
+
+//Tabing Through Order Defaults Function
+
 let billingTab = document.getElementById('billingTab');
 let shippingTab = document.getElementById('shippingTab');
 let paymentTab = document.getElementById('paymentTab');
@@ -7,7 +10,6 @@ let hiddenTabClass ='orderDefaultTabs border hidden';
 let visibleTabClass = 'orderDefaultTabs border';
 
 
-//Tabing Through Order Defaults 
 let clickedBilling = ()=>{
     billingTab.className=visibleTabClass;
     shippingTab.className=hiddenTabClass;
@@ -40,16 +42,7 @@ let clickedPayment = ()=>{
 tabButtons[2].addEventListener('click',clickedPayment);
 
 
-//2 do
-//put required tab on each input. find way to show error message. (if left bank, then show this)
-//can even do it for number of didgits in card if want
-//put aria hidden on all items behind modal when clicked, remove when not. That way screen reader cannot see them.
-
  
-
- 
-
-
 //Switching though tabs via arrow keys
 let switchTabsFromBilling=()=>{
     switch (event.key) {
@@ -108,8 +101,7 @@ tabButtons[2].addEventListener('keydown',switchTabsFromPayment)
 
 
 
-
-// VIP Module
+// VIP Modal
 let moreDetailsLink = document.querySelector('aside > a');
 let vipModal=document.getElementsByClassName('vipModal');
 let closeModalButton=document.getElementById('closeModalButton');
@@ -150,12 +142,19 @@ let showVIPModal=()=>{
     overlay.setAttribute('id','overlay');
     document.body.insertAdjacentElement('afterbegin',overlay);
 
+    document.addEventListener('keydown',escapeClose);
 
 }
 
-
-//hide the content behind modal by using the aria-hidden attribute
 moreDetailsLink.addEventListener('click',showVIPModal);
+
+let escapeClose =()=>{
+    if (event.keyCode===27){
+        closeVIPModal();
+    }
+}
+
+
 
 
 let closeVIPModal=()=>{
@@ -191,13 +190,13 @@ let closeVIPModal=()=>{
     let overlay=document.getElementById('overlay')
     document.body.removeChild(overlay);
 
+    moreDetailsLink.focus();
 }
 
 closeModalButton.addEventListener('click',closeVIPModal);
  
 
 //VALIDATION FUNCTIONS
-
 
 //billing Validation
 let billingErrorMessage = document.querySelectorAll('#billingForm .error');
@@ -226,7 +225,6 @@ let mainFunction = ()=>{
 };
 
 
-
 let validationFunction =(inputBoxesToCheck,errorMessageToShow)=>{
     for (i=0;i<inputBoxesToCheck.length;i++){
         if(!inputBoxesToCheck[i].validity.valid){
@@ -253,3 +251,7 @@ let stopError = (i,inputBoxesToCheck,errorMessageToShow)=>{
 billingForm.addEventListener('submit',mainFunction);
 shippingForm.addEventListener('submit',mainFunction);
 paymentForm.addEventListener('submit',mainFunction);
+
+
+
+ 
