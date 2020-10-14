@@ -6,39 +6,31 @@
 </head>
 <body>
  <header class="greyBackground" tabindex='-1'>
-    <figure>
-      <img src="acme-logo.jpg" alt="Website Brand Logo">
+   <figure>
+     <img src="acme-logo.jpg" alt="Website Brand Logo">
    </figure>
-
-    <nav aria-label="Site Navigation Links">
-        <a href=''>Explosives</a>
-        <a href=''>Accesorries</a>
-        <a href=''>Sale</a>
-    </nav>
-
-
-      <form method="get" role="search" aria-label="site">
-          <label for="site-search">
-          <input  id='site-search' type='search'>
-          <button type="submit">Search</button>
-          </label>
-          
-
-      </form>
+   <nav aria-label="Site Navigation Links" >
+     <a href=''>Explosives</a>
+     <a href=''>Accesorries</a>
+     <a href=''>Sale</a>
+   </nav>
+   <form method="get" role="search" aria-label="site">
+     <label for="site-search">
+       <input  id='site-search' type='search'>
+       <button type="submit">Search</button>
+     </label>
+   </form>
  </header>
-
  <div class="primaryContainer">
   <main>
     <h1>My Account</h1>
     <h2>Your Orders</h2>    
-
-    <form role="search">
-        <label for='order-search' aria-label='order'></label>
-        <input id='order-search' type='search' placeholder="order number, items">
-        <button type="submit">Search Orders</button>
+    <form method="get" role="search" aria-label='orders'>
+      <label for='order-search'></label>
+      <input id='order-search' type='search' placeholder="order number, items">
+      <button type="submit">Search Orders</button>
     </form>
-
-    <table class="orderHistory">
+    <table class="orderHistory" aria-label="Order History">
       <tr>
         <th>Order Number</th> 
         <th>Order Date</th> 
@@ -60,157 +52,121 @@
         <td>$59</td>
       </tr>
     </table>
-
-
     <section class='orderFormSection'>
       <h2>Set Your Order Defaults</h2>
-        
-      
-      <section class="tabNames" aria-describedby="Tabs to edit billing, shipping, or payment information" role="tablist">
+      <section class="tabNames" aria-label="Tabs to edit order defaults" role="tablist">
         <button role="tab" id='focusedTab'>Billing Address</button>
         <button role="tab" tabindex="-1">Shipping Address</button>
         <button role="tab" tabindex="-1">Payment Information</button>            
       </section>
-
       <section class="orderDefaultTabs border" id="billingTab" aria-label="Billing Address Pannel">
-        <form method="post" action="/create-billing-address" aria-describedby="Enter Billing Address Here" id="billingForm" novalidate  >
+        <form method="post" action="/create-billing-address"  id="billingForm" novalidate  >
           <h3>Billing Address</h3>
-
-          <label for='billing-first-name' >First Name
-             <input id='billing-first-name'     type="text" name='billing-first-name' required>
-             <span class='error hidden' aria-live='polite'>Please enter your first name</span>
+          <label for='billing-first-name'>First Name
+            <input id='billing-first-name' type="text" name='billing-first-name' required>
+            <span class='error hidden' aria-live='polite'>Please enter your first name</span>
           </label>
-
-
           <label for='billing-last-name'>Last Name
-             <input id='billing-last-name' type="text" name='billing-last-name' required>
-             <span class='error hidden' aria-live='polite'>Please enter your last name</span>
+            <input id='billing-last-name' type="text" name='billing-last-name' required>
+            <span class='error hidden' aria-live='polite'>Please enter your last name</span>
           </label>
-
           <label for='billing-address-line1'> Address 1 
-             <input id='billing-address-line1' type="text" name='billing-address-line1' required>
-             <span class='error hidden' aria-live='polite'>Please enter your address</span>
+            <input id='billing-address-line1' type="text" name='billing-address-line1' required>
+            <span class='error hidden' aria-live='polite'>Please enter your address</span>
           </label>
-
           <label for='billing-address-line2'>Address 2 
             <input id='billing-address-line2' type="text" name='billing-address-line2'>
             <span class='error hidden' >Please enter your address</span>
           </label> 
-
           <label for='billing-city'>City
-          <input id='billing-city' type="text" name='billing-city' required>
-          <span class='error hidden' aria-live='polite'>Please enter your city</span>
+            <input id='billing-city' type="text" name='billing-city' required>
+            <span class='error hidden' aria-live='polite'>Please enter your city</span>
           </label>  
-
           <label for='billing-state'>State 
             <input id='billing-state' type="text" name='billing-state' required>
             <span class='error hidden' aria-live='polite'>Please enter your state</span>
           </label>
-
           <label for='billing-zip-code'>Zip Code 
             <input id='billing-zip-code' type="text" name='billing-zip-code' required>
             <span class='error hidden' aria-live='polite'>Please enter your zip code</span>
-         </label>
-
+          </label>
           <button type='submit' id="submitBilling">Create Address</button>
         </form>
-       </section>
-    
-
-       <section class="orderDefaultTabs border hidden" id="shippingTab" aria-label="Shipping Address Pannel">
-
+      </section>
+      <section class="orderDefaultTabs border hidden" id="shippingTab" aria-label="Shipping Address Pannel">
         <form method="post"  action="/create-shipping-address" aria-describedby="Enter Shipping Address Here" id="shippingForm" novalidate>
           <h3>Shipping Address</h3>
           <label for='shipping-first-name'>First Name
             <input id='shipping-first-name' type="text" name='shipping-first-name' required>
             <span class='error hidden' aria-live='polite'>Please enter your first name</span>
           </label>
-
           <label for='shipping-last-name'>Last Name 
             <input id='shipping-last-name' type="text" name='shipping-last-name' required>
             <span class='error hidden' aria-live='polite'>Please enter your last name</span>
           </label>
-
           <label for='shipping-address-line1'>Address 1 
             <input id='shipping-address-line1' type="text" name='shipping-address-line1' required>
             <span class='error hidden' aria-live='polite'>Please enter your address</span>
           </label>
-
           <label for='shipping-address-line2'>Address 2 
             <input id='shipping-address-line2' type="text" name='shipping-address-line2'>
             <span class='error hidden'>Please enter your address</span>
           </label>
-
           <label for='shipping-city'>City
             <input id='shipping-city' type="text" name='shipping-city' required>
             <span class='error hidden' aria-live='polite'>Please enter your city</span>
           </label>  
-
           <label for='shipping-state'>State
             <input id='shipping-state' type="text" name='shipping-state' required>
             <span class='error hidden' aria-live='polite'>Please enter your state</span>
           </label>
-
           <label for='shipping-zip-code'>Zip Code
             <input id='shipping-zip-code' type="text" name='shipping-zip-code' required>
             <span class='error hidden' aria-live='polite'>Please enter your zip code</span>
-         </label>
-
+          </label>
           <button type='submit' id="submitShipping">Create Address</button>
         </form>
        </section>
-
        <section class="orderDefaultTabs border hidden" id="paymentTab" aria-label="Payment Info Pannel">
-
         <form method="post" id="paymentForm" action="/create-payment-info" aria-describedby="Enter Payment Information Here" novalidate>
           <h3>Payment Information</h3>
           <label for='payment-full-name'>Full Name 
             <input id='payment-full-name' type="text" name='payment-full-name' required>
             <span class='error hidden' aria-live='polite'>Please enter your full name</span>
           </label>
-
           <label for='card-number'>Card Number
             <input id='card-number' type="number" name='card-number'  placeholder="XXXX-XXXX-XXXX-XXXX" required>
             <span class='error hidden' aria-live='polite'>Please enter your 16 digit card number</span>
-         </label>
-
-          <label for='expiration-month'>Expiration Month
-            <input id='expiration-month' type="number" name='expiration-month' placeholder="XX"required>
-            <span class='error hidden' aria-live='polite'>Please enter card expiration month</span>
           </label>
-
+          <label for='expiration-month'>Expiration Month
+            <input id='expiration-month' type="number" name='expiration-month' placeholder="XX" required>
+            <span class='error hidden' aria-live='polite'>Please enter 2 digit card expiration month</span>
+          </label>
           <label for='expiration-year'>Expiration Year
             <input id='expiration-year' type="number" name='expiration-year' placeholder="XXXX" required>
             <span class='error hidden' aria-live='polite'>Please enter card expiration year</span>
-         </label>
-
+          </label>
           <button type='submit' id='submitPayment'>Save Card Information</button>
         </form>
        </section>
     </section>
   </main>
-
-
   <aside class="greyBackground">
      <h2>Your VIP Summary</h2>
      <p>958 VIP Points ($9.58)</p>
      <a href="#" >More Details</a>
   </aside>
  </div>
-
-
-<section class="vipModal border hidden">
+ <section class="vipModal border hidden">
     <h2 class='paddingBottom'>VIP Points Terms</h2>
     <p class='paddingBottom'>We'll upgrade your shipping every single time- no strings attached, no minimum purchase!</p>
     <ul class='paddingBottom'>
-        <li><a href='' class="modalLinks">FAQ</a></li>
-        <li><a href='' class="modalLinks">Terms & Conditions</a></li>
-        <li><a href='' class="modalLinks">Join Today</a></li>
+      <li><a href='' class="modalLinks">FAQ</a></li>
+      <li><a href='' class="modalLinks">Terms & Conditions</a></li>
+      <li><a href='' class="modalLinks">Join Today</a></li>
     </ul>
     <button type='button' id="closeModalButton" class="modalLinks" aria-label="close">X</button>
-</section>
-
-
+ </section>
  <footer>
     <p>&copy; 2020 Acme Corporation</p>
  </footer>

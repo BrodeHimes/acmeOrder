@@ -210,6 +210,7 @@ let validationFunction =(inputBoxesToCheck,errorMessageToShow)=>{
         } else if (inputBoxesToCheck[i].validity.valid){
             stopError(i,inputBoxesToCheck,errorMessageToShow)
             event.preventDefault();
+            //Put event.preventDefault() here so that form doesn't submit and take to new page page when valid. Feel free to remove to test form submition on valid inputs.
         }
     }
 }; 
