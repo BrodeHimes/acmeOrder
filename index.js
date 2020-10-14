@@ -14,7 +14,7 @@ let clickedBilling = ()=>{
     paymentTab.className=hiddenTabClass;
     tabButtons[1].setAttribute('tabindex','-1');
     tabButtons[2].setAttribute('tabindex','-1');
-    tabButtons[0].setAttribute('tabindex','0')
+    tabButtons[0].setAttribute('tabindex','0');
 
 }
 tabButtons[0].addEventListener('click',clickedBilling)
@@ -160,10 +160,14 @@ moreDetailsLink.addEventListener('click',showVIPModal);
 
 let closeVIPModal=()=>{
     vipModal[0].className="vipModal border hidden";
-    mainContainer[0].setAttribute("aria-hidden",'false');
-    headerContainer[0].setAttribute('aria-hidden','false');
-    footerContainer[0].setAttribute('aria-hidden','false');
-    asideContainer[0].setAttribute('aria-hidden','false');
+    mainContainer[0].removeAttribute('aria-hidden');
+    headerContainer[0].removeAttribute('aria-hidden');
+    footerContainer[0].removeAttribute('aria-hidden');
+    asideContainer[0].removeAttribute('aria-hidden');
+    billingTab.className=visibleTabClass;
+    shippingTab.className=hiddenTabClass;
+    paymentTab.className=hiddenTabClass;
+    
 
     for(i=0;i<inputs.length;i++){
         inputs[i].removeAttribute('tabindex')
@@ -178,6 +182,10 @@ let closeVIPModal=()=>{
     for(i=0;i<modalLinks.length;i++){
         modalLinks[i].removeAttribute('tabindex')
     };
+
+    tabButtons[1].setAttribute('tabindex','-1');
+    tabButtons[2].setAttribute('tabindex','-1');
+    tabButtons[0].setAttribute('tabindex','0');
 
     
     let overlay=document.getElementById('overlay')
