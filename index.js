@@ -125,7 +125,7 @@ let showVIPModal=()=>{
     for(i=0;i<modalLinks.length;i++){
       modalLinks[i].setAttribute('tabindex','0')
     };
-    modalLinks[0].focus();
+    closeModalButton.focus();
     let overlay= document.createElement('div');
     overlay.setAttribute('id','overlay');
     document.body.insertAdjacentElement('afterbegin',overlay);

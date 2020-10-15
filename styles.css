@@ -7,11 +7,8 @@
     background-color: rgb(196, 196, 196);
 }
 
-header {
-    height: 150px;
-}
-
 header{
+    height: 150px;
     display:flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -32,6 +29,10 @@ header form {
     display: flex;
     justify-content: space-between;
     padding: 40px;
+}
+
+footer{
+    padding-left: 40px;
 }
 
 aside{
@@ -150,21 +151,23 @@ main section form button{
     width: 520px;
     height: 180px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
     padding: 10px;
     position: absolute;
     z-index: 2;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
     top: 300px;
-    left: 15em;
     background-color: white;
 }
 
 .vipModal button {
-    position: relative;
-    right:19px;
-    top: 2px;
-    padding: 2px;
+    height: 30px;
+    padding: 5px; 
 }
 
 .paddingBottom {
