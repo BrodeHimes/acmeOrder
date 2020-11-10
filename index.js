@@ -7,6 +7,10 @@ let hiddenTabClass ='orderDefaultTabs border hidden';
 let visibleTabClass = 'orderDefaultTabs border';
 
 var tabClicked;
+//for billing, shippinp, payment tabs You could do a loop type thign. use event target to tell which tab to turn to visibileTabClass, then loop the rest and make them have 
+//hiddentabclassname. Could do the same for the other attributes you affected. 
+
+
 let clickedBilling = ()=>{
     billingTab.className=visibleTabClass;
     shippingTab.className=hiddenTabClass;
